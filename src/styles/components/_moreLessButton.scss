@@ -1,0 +1,25 @@
+.button__container {
+  background-color: white;
+  color: #303030;
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 120px;
+  height: 43px;
+  border-radius: 35px 35px 35px 35px;
+  .button__left {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-left: 10px;
+  }
+  .button__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    img {
+      transform: rotate(180deg);
+    }
+  }
+}

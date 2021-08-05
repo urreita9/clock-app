@@ -1,0 +1,8 @@
+.clock__container {
+  display: flex;
+  justify-content: baseline;
+  align-items: baseline;
+  .clock {
+    font-size: 6rem;
+  }
+}

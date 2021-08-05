@@ -1,5 +1,11 @@
 import React from "react";
+import { useClock } from "../context/ContextProvider";
 
 export const City = () => {
-  return <div className="city__container"></div>;
+  const { city } = useClock();
+  return (
+    <div className="city__container">
+      <p>{city}</p>
+    </div>
+  );
 };

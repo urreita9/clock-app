@@ -5,7 +5,7 @@ export const Quotes = () => {
   const { quote } = useClock();
   return (
     <div className="quotes__container">
-      <div>
+      <div className="text__container">
         <p>{quote.content}</p>
         <strong>{quote.author}</strong>
       </div>

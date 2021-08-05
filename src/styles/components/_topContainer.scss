@@ -1,7 +1,18 @@
 .top__container {
   width: 100vw;
   height: 100vh;
-  //   background-image: url(assets/mobile/bg-image-daytime.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-color: #485052;
+  background-blend-mode: overlay;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: baseline;
+  .top__container__bottom {
+    color: white;
+    width: 90vw;
+    margin: 20px auto;
+  }
 }
