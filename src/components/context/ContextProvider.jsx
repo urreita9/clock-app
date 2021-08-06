@@ -26,7 +26,7 @@ export const ContextProvider = ({ children }) => {
 
   const [time, setTime] = useState("");
   const [city, setCity] = useState("");
-  const [greeting, setGreeting] = useState("d");
+  const [greeting, setGreeting] = useState("");
   //Set window dimensions
   useEffect(() => {
     function handleResize() {
@@ -38,14 +38,12 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     getQuote();
-    getTime().then((response) => decideGreeting(response));
-    console.log(greeting);
+    getTime();
     getCity();
   }, []);
 
   useEffect(() => {
     decideBackground();
-    console.log(greeting);
   }, [windowDimensions, time]);
 
   const decideBackground = () => {
@@ -102,9 +100,14 @@ export const ContextProvider = ({ children }) => {
     const minutes = "0" + date.getMinutes();
 
     const formattedTime = hours + ":" + minutes.substr(-2);
-
+    if (formattedTime > "05:00" && formattedTime <= "12:00") {
+      setGreeting("Good Morning");
+    } else if (formattedTime > "12:00" && formattedTime <= "18:00") {
+      setGreeting("Good Afternoon");
+    } else {
+      setGreeting("Good Evening");
+    }
     return setTime(formattedTime);
-    // decideGreeting(formattedTime);
   };
 
   const getCity = async () => {
@@ -116,15 +119,15 @@ export const ContextProvider = ({ children }) => {
       ? setCity(`in ${country_name}`)
       : setCity(`in ${city}, ${country_code}`);
   };
-  const decideGreeting = (time) => {
-    if (time > "05:00" && time <= "12:00") {
-      setGreeting("Good Morning");
-    } else if (time > "12:00" && time <= "18:00") {
-      setGreeting("Good Afternoon");
-    } else if (time > "18:00" && time <= "05:00") {
-      setGreeting("Good Evening");
-    }
-  };
+  // const decideGreeting = (time) => {
+  //   if (time > "05:00" && time <= "12:00") {
+  //     setGreeting("Good Morning");
+  //   } else if (time > "12:00" && time <= "18:00") {
+  //     setGreeting("Good Afternoon");
+  //   } else if (time > "18:00" && time <= "05:00") {
+  //     setGreeting("Good Evening");
+  //   }
+  // };
   const values = { quote, background_icon, time, city, greeting };
   return (
     <clockContext.Provider value={values}>{children}</clockContext.Provider>
