@@ -1,6 +1,6 @@
 .top__container {
   width: 100vw;
-  height: 100vh;
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -15,4 +15,10 @@
     width: 90vw;
     margin: 20px auto;
   }
+}
+.h70 {
+  height: 70vh;
+}
+.h100 {
+  height: 100vh;
 }

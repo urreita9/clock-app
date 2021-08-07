@@ -25,8 +25,12 @@ export const ContextProvider = ({ children }) => {
   });
 
   const [time, setTime] = useState("");
+  const [additionalData, setAdditionalData] = useState({});
   const [city, setCity] = useState("");
   const [greeting, setGreeting] = useState("");
+  const [more, setMore] = useState(false);
+  const [dark, setDark] = useState(false);
+
   //Set window dimensions
   useEffect(() => {
     function handleResize() {
@@ -48,6 +52,12 @@ export const ContextProvider = ({ children }) => {
 
   const decideBackground = () => {
     const { width } = windowDimensions;
+    if (time > "05:00" && time < "18:00") {
+      setDark(false);
+    } else {
+      setDark(true);
+    }
+
     if (width > 375 && width < 769) {
       time > "05:00" && time < "18:00"
         ? setBackground_icon({
@@ -93,10 +103,19 @@ export const ContextProvider = ({ children }) => {
   const getTime = async () => {
     const response = await fetch("https://worldtimeapi.org/api/ip");
     const data = await response.json();
-    const { unixtime } = data;
+
+    const { unixtime, day_of_week, week_number, day_of_year, timezone } = data;
+
+    setAdditionalData({
+      weekDay: day_of_week,
+      weekNum: week_number,
+      yearDay: day_of_year,
+      timezone,
+    });
 
     const date = new Date(unixtime * 1000);
-    const hours = date.getHours();
+    const hours =
+      date.getHours() < 10 ? "0" + date.getHours() : date.getHours();
     const minutes = "0" + date.getMinutes();
 
     const formattedTime = hours + ":" + minutes.substr(-2);
@@ -119,16 +138,17 @@ export const ContextProvider = ({ children }) => {
       ? setCity(`in ${country_name}`)
       : setCity(`in ${city}, ${country_code}`);
   };
-  // const decideGreeting = (time) => {
-  //   if (time > "05:00" && time <= "12:00") {
-  //     setGreeting("Good Morning");
-  //   } else if (time > "12:00" && time <= "18:00") {
-  //     setGreeting("Good Afternoon");
-  //   } else if (time > "18:00" && time <= "05:00") {
-  //     setGreeting("Good Evening");
-  //   }
-  // };
-  const values = { quote, background_icon, time, city, greeting };
+
+  const values = {
+    quote,
+    background_icon,
+    time,
+    city,
+    greeting,
+    more,
+    setMore,
+    additionalData,
+  };
   return (
     <clockContext.Provider value={values}>{children}</clockContext.Provider>
   );

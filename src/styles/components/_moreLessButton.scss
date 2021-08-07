@@ -8,6 +8,7 @@
   width: 120px;
   height: 43px;
   border-radius: 35px 35px 35px 35px;
+  cursor: pointer;
   .button__left {
     font-size: 0.9rem;
     letter-spacing: 2px;
@@ -18,7 +19,7 @@
     justify-content: center;
     align-items: center;
     margin-left: 10px;
-    img {
+    .rotateImg {
       transform: rotate(180deg);
     }
   }

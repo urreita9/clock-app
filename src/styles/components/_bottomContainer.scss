@@ -1,0 +1,42 @@
+.bottom__container {
+  //   font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+.bg__light {
+  background: rgb(255, 255, 255);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(151, 151, 151, 1) 100%
+  );
+  color: black;
+}
+.bg__dark {
+  background-color: black;
+  color: white;
+}
+.timeData__container {
+  width: 90vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .time__data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .time__data__left {
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: lighter;
+    line-height: 28px;
+  }
+  .time__data__right {
+    font-weight: bold;
+    line-height: 28px;
+  }
+}
