@@ -4,9 +4,12 @@ import { useClock } from "./context/ContextProvider";
 import { TopContainer } from "./top_container/TopContainer";
 
 export const Container = () => {
-  const { more } = useClock();
+  const { more, background_icon } = useClock();
   return (
-    <div className="container">
+    <div
+      className="container"
+      style={{ backgroundImage: `url(${background_icon.bg})` }}
+    >
       <TopContainer />
       <BottomContainer />
     </div>

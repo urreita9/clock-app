@@ -5,7 +5,8 @@ export const BottomContainer = () => {
   const { additionalData, more, dark } = useClock();
   return (
     <div
-      className={`${more} ? "bottom__container" : "none" ${dark}?'bg__dark':'bg__light'`}
+      className={dark ? "bg__dark" : "bg__light"}
+      style={{ display: more ? "flex" : "none" }}
     >
       <div className="timeData__container">
         <div className="timeData__top__container">

@@ -1,0 +1,62 @@
+@media (min-width: 376px) {
+  .quotes__container {
+    .text__container {
+      p {
+        line-height: 20px;
+        font-size: 1rem;
+      }
+      strong {
+        font-size: 1rem;
+      }
+    }
+  }
+  .greetings__container {
+    p {
+      font-weight: lighter;
+      font-size: 1rem;
+    }
+  }
+  .clock__container {
+    .clock {
+      font-size: 10rem;
+    }
+  }
+  .city__container {
+    p {
+      letter-spacing: 3px;
+      font-size: 1rem;
+    }
+  }
+
+  .timeData__container {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .time__data {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .time__data__left {
+      //   font-size: 1.1rem;
+    }
+    .time__data__right {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (min-width: 899px) {
+  .top__container__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .timeData__container {
+    justify-content: space-around;
+  }
+}

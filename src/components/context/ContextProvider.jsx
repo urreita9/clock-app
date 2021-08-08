@@ -147,7 +147,9 @@ export const ContextProvider = ({ children }) => {
     greeting,
     more,
     setMore,
+    dark,
     additionalData,
+    getQuote,
   };
   return (
     <clockContext.Provider value={values}>{children}</clockContext.Provider>

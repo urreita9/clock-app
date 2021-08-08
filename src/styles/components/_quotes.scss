@@ -1,9 +1,22 @@
 .quotes__container {
   margin: 20px auto;
   width: 90vw;
-  //   position: absolute;
-  //   left: 5.001%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   .text__container {
     color: #ffffff;
+    p {
+      font-size: 0.8rem;
+      line-height: 20px;
+      font-weight: lighter;
+      width: 90%;
+    }
+    strong {
+      font-size: 0.9rem;
+    }
+  }
+  .refresh__quote {
+    cursor: pointer;
   }
 }

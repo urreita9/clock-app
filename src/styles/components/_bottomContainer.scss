@@ -1,6 +1,5 @@
-.bottom__container {
-  //   font-family: "Inter", sans-serif;
-  display: flex;
+.bg__light,
+.bg__dark {
   justify-content: center;
   align-items: center;
   height: 30vh;
@@ -17,6 +16,7 @@
 .bg__dark {
   background-color: black;
   color: white;
+  opacity: 0.9;
 }
 .timeData__container {
   width: 90vw;

@@ -2,7 +2,12 @@
   width: 100vw;
   height: 100vh;
   margin: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-color: #485052;
+  background-blend-mode: overlay;
 }
 .none {
-  display: none;
+  visibility: hidden;
 }
