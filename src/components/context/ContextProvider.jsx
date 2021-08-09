@@ -30,6 +30,7 @@ export const ContextProvider = ({ children }) => {
   const [greeting, setGreeting] = useState("");
   const [more, setMore] = useState(false);
   const [dark, setDark] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   //Set window dimensions
   useEffect(() => {
@@ -126,6 +127,7 @@ export const ContextProvider = ({ children }) => {
     } else {
       setGreeting("Good Evening");
     }
+    setLoading(false);
     return setTime(formattedTime);
   };
 
@@ -140,6 +142,7 @@ export const ContextProvider = ({ children }) => {
   };
 
   const values = {
+    loading,
     quote,
     background_icon,
     time,
@@ -150,6 +153,7 @@ export const ContextProvider = ({ children }) => {
     dark,
     additionalData,
     getQuote,
+    windowDimensions,
   };
   return (
     <clockContext.Provider value={values}>{children}</clockContext.Provider>
